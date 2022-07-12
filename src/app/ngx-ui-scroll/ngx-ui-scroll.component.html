@@ -1,10 +1,12 @@
 <div
   class="container"
-  #container
+  #dialogContainer
 >
   <div
     *uiScroll="let item of datasource"
-    class="item"
+    class="item id-{{item.id}}"
+    #messageItems
+    (click)="onClickItem(item.id)"
   >
     <div>{{item.id}}. {{item.text}}</div>
     <div *ngIf="item.image">
