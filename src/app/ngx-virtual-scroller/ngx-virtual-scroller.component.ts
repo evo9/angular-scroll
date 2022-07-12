@@ -11,6 +11,8 @@ import { IPageInfo } from 'ngx-virtual-scroller';
 export class NgxVirtualScrollerComponent implements OnInit {
 
   public items = [];
+  private _startIndex = 0;
+  private _endIndex = 19;
 
   constructor() { }
 
@@ -19,7 +21,20 @@ export class NgxVirtualScrollerComponent implements OnInit {
   }
 
   public onScroll(event: IPageInfo): void {
-    console.log(event);
+    const {startIndex, endIndex} = event;
+
+    // console.log(endIndex, this._endIndex);
+
+    if (this._startIndex > startIndex && startIndex === 2) {
+      this.items = [...generateItems(this.items.length - 1), ...this.items];
+    }
+
+    if (this._endIndex < endIndex && endIndex >= this.items.length - 3) {
+      this.items = [...this.items, ...generateItems(this.items.length - 1)];
+    }
+
+    this._startIndex = startIndex;
+    this._endIndex = endIndex;
   }
 
 }
