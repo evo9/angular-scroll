@@ -1,0 +1,16 @@
+<virtual-scroller
+  class="container"
+  #scroll
+  [items]="items"
+  (vsChange)="onScroll($event)"
+>
+  <div
+    *ngFor="let item of scroll.viewPortItems"
+    class="item"
+  >
+    <div>{{item.id}}. {{item.text}}</div>
+    <div *ngIf="item.image">
+      <img [src]="item.image" alt="">
+    </div>
+  </div>
+</virtual-scroller>

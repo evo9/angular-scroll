@@ -1,0 +1,15 @@
+<div
+  class="container"
+  #container
+>
+  <div
+    *uiScroll="let item of datasource"
+    class="item"
+  >
+    <div>{{item.id}}. {{item.text}}</div>
+    <div *ngIf="item.image">
+      <img [src]="item.image" alt="">
+    </div>
+  </div
+  >
+</div>
