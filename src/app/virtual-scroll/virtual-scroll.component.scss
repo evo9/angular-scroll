@@ -1,0 +1,25 @@
+
+.viewport {
+  width: 600px;
+  height: 500px;
+  margin: 100px auto 0;
+  overflow: auto;
+  border: 1px solid;
+
+  .cdk-virtual-scroll-viewport {
+    height: 100%;
+  }
+
+  .item {
+    border: 1px solid;
+    padding: 5px;
+    margin: 10px 0;
+
+    > .img {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+

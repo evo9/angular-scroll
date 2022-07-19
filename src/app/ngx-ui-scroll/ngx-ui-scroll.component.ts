@@ -46,9 +46,10 @@ export class NgxUiScrollComponent implements OnInit, AfterViewInit {
       if ($index === minIndex && this._firstIndex > $index) {
         console.log('prepend');
         const items = generateItems(maxIndex);
+        this._items = [...items, this._items];
 
-        await this._adapter.relax();
-        await this._adapter.prepend({ items });
+        // await this._adapter.relax();
+        // await this._adapter.prepend({ items });
       }
 
       this._firstIndex = $index;
@@ -60,10 +61,11 @@ export class NgxUiScrollComponent implements OnInit, AfterViewInit {
 
       if ($index === maxIndex && this._lastIndex < $index) {
         console.log('append');
+        this._items = [...this._items, ...generateItems(this._items.length)];
         // setTimeout(async () => {
-          const items = generateItems(maxIndex);
-          await this._adapter.relax();
-          await this._adapter.append({ items, });
+        //   const items = generateItems(maxIndex);
+        //   await this._adapter.relax();
+        //   await this._adapter.append({ items, });
           // await this._adapter.clip({backwardOnly: true});
         // }, 1000);
       }

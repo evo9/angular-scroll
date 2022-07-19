@@ -1,18 +1,47 @@
-<div
-  class="container"
-  [class.scroll-disabled]="isScrollDisabled"
-  #dialogContainer
-  (scroll)="onScroll()"
->
-  <div
-    *ngFor="let item of items; let index = index trackBy: trackByIndexFn"
-    class="item"
-    #messageItems
-  >
-    <div>{{item.id}}. {{item.text}}</div>
-    <div *ngIf="item.image">
-      <img [src]="item.image" alt="">
+<p>{{_startIndex}} - {{_endIndex}}</p>
+<div class="container">
+  <div class="viewport-wrapper">
+    <div
+      class="viewport"
+      #viewport
+      (scroll)="onScroll()"
+    >
+      <!--[style.height.px]="viewportHeight"-->
+      <div [style.height.px]="topHeight"></div>
+      <div
+        *ngFor="let item of items; trackBy: trackByIdFn"
+        #listItems
+        [id]="item.id"
+        class="item"
+      >
+        <div
+          class="inner"
+        >
+          <div>{{item.id}}. {{item.text}}</div>
+          <img *ngIf="item.image" [src]="item.image" alt="">
+        </div>
+      </div>
+      <div [style.height.px]="bottomHeight"></div>
     </div>
-  </div
-  >
+  </div>
+
+  <div class="viewport-wrapper">
+    <div
+      class="viewport"
+      #prevViewport
+    >
+      <div
+        *ngFor="let item of prevItems; trackBy: trackByIdFn"
+        #listPrevItems
+        class="item"
+      >
+        <div
+          class="inner"
+        >
+          <div>{{item.id}}. {{item.text}}</div>
+          <img *ngIf="item.image" [src]="item.image" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

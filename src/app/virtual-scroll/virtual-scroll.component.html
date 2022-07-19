@@ -1,0 +1,15 @@
+<div class="viewport">
+  <cdk-virtual-scroll-viewport [itemSize]="itemSize" (scrolledIndexChange)="onChangeIndex($event)">
+    <div
+      *cdkVirtualFor="let item of items; let index = index trackBy: trackByIndexFn"
+      #listItems
+      [id]="index"
+      class="item"
+    >
+      <div>{{item.id}}. {{item.text}}</div>
+      <div *ngIf="item.image">
+        <img [src]="item.image" alt="">
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>

@@ -11,9 +11,30 @@ export const generateItems = (index: number, count: number = 10) => {
         count: 1,
         units: 'paragraph',
       }),
-      image: i % 2 === 0 ? `https://picsum.photos/50/50?random=${i}` : null,
+      image: getRandomImage(i),
     });
   }
 
   return items;
 }
+
+export const getRandomImage = (index: number) => {
+    if (index % 2 !== 0) {
+      return null;
+    }
+
+    const max = images.length - 1;
+
+    return images[Math.floor(Math.random() * max)];
+}
+
+
+const images = [
+  '/assets/images/pic.jpg',
+  '/assets/images/dummy_img.jpg',
+  '/assets/images/dummy_job.png',
+  '/assets/images/dummy_avatar.jpg',
+  '/assets/images/map.png',
+  '/assets/images/mLO6ILUbADA.jpg',
+  '/assets/images/nWiS2rgtVts.jpg',
+];

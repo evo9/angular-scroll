@@ -1,0 +1,36 @@
+<div
+  class="container"
+  infinite-scroll
+  appScroll
+  #viewport
+  [scrollWindow]="false"
+  [infiniteScrollDistance]="1"
+  [infiniteScrollUpDistance]="2"
+  [infiniteScrollThrottle]="1500"
+  (scrolled)="onScrolledDown()"
+  (scrolledUp)="onScrolledUp()"
+>
+<!--  <ul>-->
+<!--    <li-->
+<!--      *ngFor="let item of items; trackBy: trackByIndexFn"-->
+<!--      #listItems-->
+<!--      class="item"-->
+<!--    >-->
+<!--      <div>{{item.id}}. {{item.text}}</div>-->
+<!--      <div *ngIf="item.image">-->
+<!--        <img [src]="item.image" alt="">-->
+<!--      </div>-->
+<!--    </li>-->
+<!--  </ul>-->
+  <div
+    *ngFor="let item of items; trackBy: trackByIndexFn"
+    #listItems
+    [id]="item.id"
+    class="item"
+  >
+    <div>{{item.id}}. {{item.text}}</div>
+    <div *ngIf="item.image">
+      <img [src]="item.image" alt="">
+    </div>
+  </div>
+</div>
