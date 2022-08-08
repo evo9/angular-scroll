@@ -83,12 +83,15 @@ export class CustomVirtualScrollComponent implements OnInit, OnDestroy, AfterVie
 
         if (this._direction === 'up') {
           this._calculateScrollIndexes(length);
-          const scrollTop = this._transform + this._oldScrollTop/* - this._cachedItems[length].height*/;
-          // console.log(scrollTop, this._cachedItems[length].height);
-          this.viewportElementRef.nativeElement.scrollTop = scrollTop;
+          this.viewportElementRef.nativeElement.scrollTop = this._transform + this._oldScrollTop + this._cachedItems[length - 1].height;
           setTimeout(() => {
             this._scrollEventEnabled = true;
           }, 100);
+        }
+
+        if (this._direction === 'down') {
+          this._calculateScrollIndexes(this._startIndex);
+          this._scrollEventEnabled = true;
         }
       }
     });
@@ -120,7 +123,10 @@ export class CustomVirtualScrollComponent implements OnInit, OnDestroy, AfterVie
         this._scrollEventEnabled = false;
         this._onScrollUp();
       }
-      if (this._direction === 'down' && this._endIndex === this._maxIndex - 1) {
+      if (this._direction === 'down') {
+        console.log(this._endIndex, this._maxIndex);
+      }
+      if (this._direction === 'down' && this._endIndex === this._maxIndex) {
         this._scrollEventEnabled = false;
         this._onScrollDown();
       }
@@ -173,7 +179,7 @@ export class CustomVirtualScrollComponent implements OnInit, OnDestroy, AfterVie
       startIndex--;
     }
     this._startIndex = startIndex;
-    this._endIndex = endIndex > this._maxIndex ? this._maxIndex + 1 : endIndex;
+    this._endIndex = endIndex > this._maxIndex ? this._maxIndex : endIndex;
 
     this._setItems();
     this._setTransform(startIndex);
@@ -193,12 +199,16 @@ export class CustomVirtualScrollComponent implements OnInit, OnDestroy, AfterVie
 
   private _onScrollDown(): void {
     console.log('scrolled down');
-    setTimeout(() => {
-      this._scrollEventEnabled = true;
-    }, 500);
+    this._appendItems();
   }
 
   private _prependItems(): void {
+    this._oldScrollTop = this.viewportElementRef.nativeElement.scrollTop;
+    this.prevItems = generateItems(this._cachedItems.length, 10);
+    this._cdr.detectChanges();
+  }
+
+  private _appendItems(): void {
     this.prevItems = generateItems(this._cachedItems.length, 10);
     this._cdr.detectChanges();
   }
@@ -216,7 +226,6 @@ export class CustomVirtualScrollComponent implements OnInit, OnDestroy, AfterVie
   }
 
   private _setTransform(startIndex: number): void {
-    this._oldScrollTop = this.viewportElementRef.nativeElement.scrollTop;
     let transform = 0;
     for (let i = 0; i < startIndex; i++) {
       transform += this._cachedItems[i].height;
