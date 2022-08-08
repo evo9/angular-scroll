@@ -9,8 +9,6 @@
     class="item"
   >
     <div>{{item.id}}. {{item.text}}</div>
-    <div *ngIf="item.image">
-      <img [src]="item.image" alt="">
-    </div>
+    <img *ngIf="item.image" [src]="item.image" alt="">
   </div>
 </virtual-scroller>

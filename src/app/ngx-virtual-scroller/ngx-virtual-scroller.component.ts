@@ -17,24 +17,24 @@ export class NgxVirtualScrollerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.items = generateItems(0, 20);
+    this.items = generateItems(0, 100);
   }
 
   public onScroll(event: IPageInfo): void {
-    const {startIndex, endIndex} = event;
-
-    // console.log(endIndex, this._endIndex);
-
-    if (this._startIndex > startIndex && startIndex === 2) {
-      this.items = [...generateItems(this.items.length - 1), ...this.items];
-    }
-
-    if (this._endIndex < endIndex && endIndex >= this.items.length - 3) {
-      this.items = [...this.items, ...generateItems(this.items.length - 1)];
-    }
-
-    this._startIndex = startIndex;
-    this._endIndex = endIndex;
+    // const {startIndex, endIndex} = event;
+    //
+    // // console.log(endIndex, this._endIndex);
+    //
+    // if (this._startIndex > startIndex && startIndex === 2) {
+    //   this.items = [...generateItems(this.items.length - 1), ...this.items];
+    // }
+    //
+    // if (this._endIndex < endIndex && endIndex >= this.items.length - 3) {
+    //   this.items = [...this.items, ...generateItems(this.items.length - 1)];
+    // }
+    //
+    // this._startIndex = startIndex;
+    // this._endIndex = endIndex;
   }
 
 }

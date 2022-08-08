@@ -49,7 +49,7 @@ export class NgxUiScrollComponent implements OnInit, AfterViewInit {
         this._items = [...items, this._items];
 
         // await this._adapter.relax();
-        // await this._adapter.prepend({ items });
+        // await this._adapter.prepend({ viewportItems });
       }
 
       this._firstIndex = $index;
@@ -63,9 +63,9 @@ export class NgxUiScrollComponent implements OnInit, AfterViewInit {
         console.log('append');
         this._items = [...this._items, ...generateItems(this._items.length)];
         // setTimeout(async () => {
-        //   const items = generateItems(maxIndex);
+        //   const viewportItems = generateItems(maxIndex);
         //   await this._adapter.relax();
-        //   await this._adapter.append({ items, });
+        //   await this._adapter.append({ viewportItems, });
           // await this._adapter.clip({backwardOnly: true});
         // }, 1000);
       }
@@ -87,7 +87,7 @@ export class NgxUiScrollComponent implements OnInit, AfterViewInit {
 
   public async onClickItem(index: number): Promise<void> {
     // await this._adapter.relax();
-    // await this._adapter.insert({ items: generateItems(0, 30), decrease: false });
+    // await this._adapter.insert({ viewportItems: generateItems(0, 30), decrease: false });
     // console.log(this.messageItems.length);
 
     // const message = this.messageItems.get(index);
@@ -98,10 +98,10 @@ export class NgxUiScrollComponent implements OnInit, AfterViewInit {
     //
     // this.dialogContainer.nativeElement.scrollTop = message.nativeElement.getBoundingClientRect().bottom;
 
-   /* const items = generateItems(0, 1);
+   /* const viewportItems = generateItems(0, 1);
     //
     await this._adapter.relax();
-    await this._adapter.append({ items });
+    await this._adapter.append({ viewportItems });
 
     console.log(this._adapter.lastVisible)
 

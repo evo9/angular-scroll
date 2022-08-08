@@ -1,0 +1,46 @@
+<div class="scroll-spacer" #spacer></div>
+<div class="scroll-container" #scrollContainer >
+  <ng-content></ng-content>
+</div>
+
+
+<!--  <div class="viewport-wrapper">-->
+<!--    <div-->
+<!--      class="viewport"-->
+<!--      #viewport-->
+<!--    >-->
+<!--      &lt;!&ndash;[style.height.px]="viewportHeight"&ndash;&gt;-->
+<!--&lt;!&ndash;      <div [style.height.px]="topHeight"></div>&ndash;&gt;-->
+<!--      <div-->
+<!--        *ngFor="let item of items; trackBy: trackByFn"-->
+<!--        #listItems-->
+<!--        [id]="item.id"-->
+<!--        class="item"-->
+<!--      >-->
+<!--        <div-->
+<!--          class="inner"-->
+<!--        >-->
+<!--          <div>{{item.id}}. {{item.text}}</div>-->
+<!--          <img *ngIf="item.image" [src]="item.image" alt="">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--&lt;!&ndash;      <div [style.height.px]="bottomHeight"></div>&ndash;&gt;-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="viewport-wrapper meter">-->
+<!--    <div class="viewport">-->
+<!--      <div-->
+<!--        *ngFor="let item of itemsMeter; trackBy: trackByIdFn"-->
+<!--        #listItemsMeter-->
+<!--        class="item"-->
+<!--      >-->
+<!--        <div-->
+<!--          class="inner"-->
+<!--        >-->
+<!--          <div>{{item.id}}. {{item.text}}</div>-->
+<!--          <img *ngIf="item.image" [src]="item.image" alt="">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->

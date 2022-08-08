@@ -1,0 +1,43 @@
+<div
+  class="container"
+>
+  <div class="viewport" #viewport>
+<!--    <div [style.height.px]="topHeight"></div>-->
+<!--    <div #topSpacer></div>-->
+    <div class="scroll-spacer" #scrollSpacer></div>
+    <div class="scroll-container" #scrollContainer>
+      <div
+        *ngFor="let item of items; trackBy: trackByIdFn"
+        class="item"
+      >
+        <div class="inner">
+          <p>{{item.data.id}}. {{item.data.text}}</p>
+          <img
+            *ngIf="item.data.image"
+            src="{{item.data.image}}"
+            alt=""
+          >
+        </div>
+      </div>
+    </div>
+<!--    <div [style.height.px]="bottomHeight"></div>-->
+<!--    <div #bottomSpacer></div>-->
+
+    <div class="preview">
+      <div
+        *ngFor="let item of prevItems; trackBy: trackByIdFn"
+        class="item"
+        #listItems
+      >
+        <div class="inner">
+          <p>{{item.id}}. {{item.text}}</p>
+          <img
+            *ngIf="item.image"
+            src="{{item.image}}"
+            alt=""
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

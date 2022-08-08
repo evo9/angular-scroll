@@ -1,31 +1,57 @@
 .container {
-  display: block;
-  border: 1px solid;
-  padding: 10px;
-  margin: 100px auto;
   height: 500px;
   width: 500px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  overflow-anchor: auto;
+  border: 1px solid;
+  padding: 10px 0;
+  margin: 100px auto;
+  overflow: hidden;
 
   .viewport {
     position: relative;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 
-    .item {
-      padding-bottom: 10px;
+    .scroll-spacer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 1px;
+      width: 1px;
+      transform-origin: 0 0;
+      opacity: 0;
+    }
 
-      .inner {
-        border: 1px solid;
-        padding: 5px;
+    .scroll-container {
+      position: relative;
+      z-index: 1;
+      background-color: #fff;
+    }
 
-        > img {
-          display: block;
-          width: 50px;
-          height: 50px;
-        }
-      }
+    .preview {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 0;
+    }
+  }
+}
+
+.item {
+  padding-bottom: 10px;
+
+  .inner {
+    border: 1px solid;
+    padding: 5px;
+
+    > img {
+      display: block;
+      width: 50px;
+      height: 50px;
     }
   }
 }

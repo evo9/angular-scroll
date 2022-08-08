@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CustomScrollComponent } from './custom-scroll.component';
 import { CustomScrollRoutingModule } from './custom-scroll-routing.module';
+import { CustomVirtualScrollerModule } from '../custom-virtual-scroller/custom-virtual-scroller.module';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { CustomScrollRoutingModule } from './custom-scroll-routing.module';
   imports: [
     CommonModule,
     CustomScrollRoutingModule,
+    CustomVirtualScrollerModule,
   ],
 })
 export class CustomScrollModule {}

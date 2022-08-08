@@ -49,7 +49,7 @@ export class NgxPerfectScrollbarComponent implements OnInit, OnChanges, AfterVie
 
   public onClick(): void {
     const items = [...generateItems(20), ...this.items];
-    // items.splice(-10);
+    // viewportItems.splice(-10);
     this.items = [...items];
     // this.isDisabled = true;
     // this._position = this.directiveRef.position(true);
@@ -67,7 +67,7 @@ export class NgxPerfectScrollbarComponent implements OnInit, OnChanges, AfterVie
 
     // console.log(23423)
     // generateItems(20).forEach(item => {
-    //   this.items.push(item);
+    //   this.viewportItems.push(item);
     // })
     // this.ps.directiveRef.update();
     // if (this._scrollTimer) {

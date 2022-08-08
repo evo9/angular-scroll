@@ -1,47 +1,55 @@
-<p>{{_startIndex}} - {{_endIndex}}</p>
-<div class="container">
-  <div class="viewport-wrapper">
+<div
+  class="container"
+  #container
+  (scroll)="onScroll()"
+>
+  <div
+    class="viewport"
+    #viewport
+  >
     <div
-      class="viewport"
-      #viewport
-      (scroll)="onScroll()"
+      class="spacer"
+      #spacer
     >
-      <!--[style.height.px]="viewportHeight"-->
-      <div [style.height.px]="topHeight"></div>
       <div
-        *ngFor="let item of items; trackBy: trackByIdFn"
-        #listItems
-        [id]="item.id"
+        *ngFor="let item of items"
         class="item"
+        #items
       >
-        <div
-          class="inner"
-        >
-          <div>{{item.id}}. {{item.text}}</div>
-          <img *ngIf="item.image" [src]="item.image" alt="">
+        <div class="inner">
+          <p>{{item.id}}. {{item.text}}</p>
+          <img
+            *ngIf="item.image"
+            src="{{item.image}}"
+            alt=""
+          >
         </div>
       </div>
-      <div [style.height.px]="bottomHeight"></div>
     </div>
   </div>
+  <div class="preview">
 
-  <div class="viewport-wrapper">
-    <div
-      class="viewport"
-      #prevViewport
-    >
-      <div
-        *ngFor="let item of prevItems; trackBy: trackByIdFn"
-        #listPrevItems
-        class="item"
-      >
-        <div
-          class="inner"
-        >
-          <div>{{item.id}}. {{item.text}}</div>
-          <img *ngIf="item.image" [src]="item.image" alt="">
-        </div>
-      </div>
-    </div>
   </div>
 </div>
+
+<!--<app-custom-virtual-scroller-->
+<!--  class="container"-->
+<!--  #scroll-->
+<!--  [initialItems]="items"-->
+<!--  [prepend]="prependItems"-->
+<!--&gt;-->
+<!--  <div-->
+<!--    *ngFor="let item of scroll.items"-->
+<!--    class="item"-->
+<!--  >-->
+<!--    <div class="inner">-->
+<!--      <p>{{item.text}}</p>-->
+<!--      <img-->
+<!--        *ngIf="item.image"-->
+<!--        src="{{item.image}}"-->
+<!--        alt=""-->
+<!--      >-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</app-custom-virtual-scroller>-->
+

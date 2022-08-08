@@ -37,7 +37,7 @@ export class VirtualScrollComponent implements OnInit, AfterViewInit {
     //   this.listItemsUnder.forEach(item => {
     //     const id = item.nativeElement.id;
     //     console.log(item.nativeElement.clientHeight, item.nativeElement.offsetHeight)
-    //     this.items.push({ ...this.itemsUnder[id], height: item.nativeElement.clientHeight })
+    //     this.viewportItems.push({ ...this.itemsUnder[id], height: item.nativeElement.clientHeight })
     //   });
     // })
   }

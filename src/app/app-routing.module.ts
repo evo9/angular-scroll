@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./ngx-ui-scroll/ngx-ui-scroll.module').then(m => m.NgxUiScrollModule),
   },
   {
-    path: 'ngx-virtual-scroll',
+    path: 'ngx-virtual-scroller',
     loadChildren: () => import('./ngx-virtual-scroller/ngx-virtual-scroller.module').then(m => m.NgxVirtualScrollerModule),
   },
   {
@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: 'virtual-scroll',
     loadChildren: () => import('./virtual-scroll/virtual-scroll.module').then(m => m.VirtualScrollModule),
+  },
+  {
+    path: 'custom-virtual-scroll',
+    loadChildren: () => import('./custom-virtual-scroll/custom-virtual-scroll.module').then(m => m.CustomVirtualScrollModule),
   },
 ];
 
